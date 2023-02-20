@@ -13,11 +13,13 @@ Para que esto funcione correctamente necesitamos dos variables de entorno:
 
 - Linux/Mac
   export FLASK_APP=hello
-  export FLASK_ENVIRONMENT=development
+  export FLASK_ENV=development (obsoleto)
+  export FLASK_DEBUG=True
 
 - Windows
   set FLASK_APP=hello
-  set FLASK_ENVIRONMENT=development
+  set FLASK_ENV=development (obsoleto)
+  set FLASK_DEBUG=True
 """
 
 # instanciamos Flask y le pasamos un nombre para la app
