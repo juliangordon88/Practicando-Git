@@ -6,7 +6,7 @@ from . import app
 @app.route('/')
 def home():
     """
-    Muestra la lista de movimientos cargados
+    Muestra la lista de movimientos cargados.
     """
     return render_template("inicio.html")
 
