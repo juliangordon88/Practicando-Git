@@ -31,7 +31,13 @@
       {% if movs %}
       {% for m in movs %}
       <tr>
-        <td>{{ m.fecha }}</td>
+        <td>
+          {% if m.fecha %}
+          {{ m.fecha }}
+          {% else %}
+          ---
+          {% endif %}
+        </td>
         <td>{{ m.concepto }}</td>
         <td>
           {% if m.ingreso_gasto == 'I' %}
