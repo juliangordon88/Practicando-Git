@@ -23,10 +23,12 @@ class Movimiento:
         except ValueError:
             self.fecha = None
             self.errores.append("El formato de la fecha no es válido")
+            self.errores.append("El formato de la fecha no es válido")
         self.concepto = concepto
         self.tipo = tipo
         self.cantidad = cantidad
 
+    @property
     def has_errors(self):
         return len(self.errores) > 0
 
