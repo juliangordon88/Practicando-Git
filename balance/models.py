@@ -32,6 +32,10 @@ class Movimiento:
         return len(self.errores) > 0
 
     def __str__(self):
+        if self.fecha is None:
+            fecha = "---"
+        else:
+            fecha = self.fecha
         return f'{self.fecha}\t{self.concepto}\t{self.tipo}\t{self.cantidad}'
 
     def __repr__(self):
@@ -56,3 +60,21 @@ class ListaMovimientos:
                     fila["ingreso_gasto"],
                     fila["cantidad"])
                 self.lista_movimientos.append(mov)
+
+
+def __str__(self):
+    """Pinta la lista de movimientos por pantalla (consola)
+    """
+    if len(self.movimientos) > 0:
+        resultado = ""
+        for mov in self.movimientos:
+            resultado += f"{mov}\n"
+    else:
+        resultado = "La lista de movimientos esta vacia"
+
+
+
+
+def __repr__(self):
+    conteo = len(self.movimientos)
+    return f"Lista de movimientos con {conteo} movimientos"
