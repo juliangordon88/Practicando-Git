@@ -32,7 +32,11 @@ class Movimiento:
         return len(self.errores) > 0
 
     def __str__(self):
-        return f'{self.fecha}\t{self.concepto}\t{self.tipo}\t{self.cantidad}'
+        if self.fecha is None:
+            fecha = "---"
+        else:
+            fecha = self.fecha
+        return f'{fecha}\t{self.concepto}\t{self.tipo}\t{self.cantidad}'
 
     def __repr__(self):
         return self.__str__()
@@ -44,7 +48,7 @@ class ListaMovimientos:
     """
 
     def __init__(self):
-        self.lista_movimientos = []
+        self.movimientos = []
 
     def leer_desde_archivo(self):
         with open(RUTA_FICHERO, 'r') as fichero:
@@ -55,4 +59,20 @@ class ListaMovimientos:
                     fila["concepto"],
                     fila["ingreso_gasto"],
                     fila["cantidad"])
-                self.lista_movimientos.append(mov)
+                self.movimientos.append(mov)
+
+    def __str__(self):
+        """
+        Pinta la lista de movimientos por pantalla (consola)
+        """
+        if len(self.movimientos) > 0:
+            resultado = ""
+            for mov in self.movimientos:
+                resultado += f'{mov}\n'
+        else:
+            resultado = 'La lista de movimientos está vacía'
+        return resultado
+
+    def __repr__(self):
+        conteo = len(self.movimientos)
+        return f'Lista de movimientos con {conteo} movimientos'
